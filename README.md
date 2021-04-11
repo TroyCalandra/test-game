@@ -7,12 +7,15 @@ CMake
 Git
 
 ## Snake Compile to WASM
-Compile
+Compile to single file
 ```
-snake/src/ $ emcc -02 \
- -o opt.html *.c \
- -Wall -g -lm \
- -s USE_SDL=2
+snake/src/ $ emcc -o single.html *.c -s WASM=1 -s SINGLE_FILE=1 -s USE_SDL=2
+```
+or
+
+Compile to multiple files
+```
+snake/src/ $ emcc -o output.html *.c -s USE_SDL=2
 ```
 Run
 ```
