@@ -5,7 +5,7 @@
 #include "player.h"
 #include "asteroids.h"
 
-// #include "emscripten.h"
+#include "emscripten.h"
 
 #define ASTEROIDS 27
 #define LIVES 3
@@ -126,6 +126,8 @@ void mainloop()
 	SDL_RenderPresent(renderer);
 
 	if(quit == 1) {
+		emscripten_cancel_main_loop();
+
 		free(pixels);
 		
 		SDL_DestroyWindow(window);
